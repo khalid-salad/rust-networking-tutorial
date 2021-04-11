@@ -1,0 +1,162 @@
+\section{The Rust Language}
+\begin{frame}{What is Rust?}
+    \pause Rust is a multi-paradigm programming language with
+    \pause
+    \begin{itemize}[<+->]
+        \item no runtime (e.g. garbage collector)
+        \item while still guaranteeing memory safety
+        \begin{itemize}[<+->]
+            \item \alert{at compile time}
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Performance}
+    \pause
+    Rust has performance comparable to C/C++ with no runtime or garbage
+    collector, and can
+    \pause
+    \begin{itemize}[<+->]
+        \item handle performance-critical services
+        \item run on embedded devices
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Safety}
+    \pause
+    Rust guarantees memory and thread safety \alert{at compile time} with
+    \pause
+    \begin{itemize}[<+->]
+        \item rich, algebraic type system
+        \begin{itemize}[<+->]
+            \item e.g. can utilize return value error handling without typical
+                  boilerplate overhead
+        \end{itemize}
+        \item a borrow checker
+        \begin{itemize}[<+->]
+            \item very strict rules set by the compiler
+            \item allows compiler to verify memory and thread safety
+        \end{itemize}
+        \item lifetimes
+        \begin{itemize}[<+->]
+            \item specify the scope during which objects will survive in memory
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Ownership}
+    \pause
+    Rust has an \alert{ownership} system
+    \pause
+    \begin{itemize}[<+->]
+        \item every value has a \alert{unique} \emph{owner} (variable)
+        \item when an owner's scope ends, the value is destroyed
+        \begin{itemize}[<+->]
+            \item common known as RAII
+            \begin{itemize}[<+->]
+                \item Resource Acquisition is Initialization
+            \end{itemize}
+        \end{itemize}
+    \end{itemize}
+    \pause
+    The \alert{borrow checker} enforces this sytem
+\end{frame}
+
+\begin{frame}{The Borrow Checker}
+    \pause
+    To avoid copying everything by value, Rust allows passing by
+    reference. Every reference can be
+    \pause
+    \begin{itemize}[<+->]
+        \item immutable
+        \begin{itemize}[<+->]
+            \item \mintinline{rust}|&T|
+        \end{itemize}
+        \item mutable
+        \begin{itemize}[<+->]
+            \item \mintinline{rust}|&mut T|
+        \end{itemize}
+    \end{itemize}
+    \pause The borrow checker essentially enforces the following:\pause
+    \begin{itemize}[<+->]
+        \item at any time, there can be
+        \begin{itemize}[<+->]
+            \item any number of immutable references to an object, or
+            \item \alert{exactly one} mutable reference to an object
+        \end{itemize}
+        \item but not both
+        \item implicit readers-writers lock
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Rust Syntax}
+    \pause
+    Syntactically, Rust is somewhat similar to C++. For example, the Hello World
+    in Rust looks like
+    \pause
+    \inputrust[Hello World]{code/hello-world.rs}
+    \pause
+    Like C and C++, Rust has a \alert{main} entry point
+\end{frame}
+
+\begin{frame}{Syntax (Continued)}
+    \begin{itemize}[<+->]
+        \item Blocks of code are delimited by curly braces
+        \item \alert{Statements} are ended with semi-colons
+        \item \mintinline{rust}|if|, \mintinline{rust}|else|,
+        \mintinline{rust}|while|, \mintinline{rust}|for| are control-flow
+        keywords
+        \item \mintinline{rust}|match| keyword works similar to C 
+              \mintinline{c}|switch|
+        \item \mintinline{rust}|let| keyword is used for assignment
+        \begin{itemize}[<+->]
+            \item Compiler will attempt to infer type if not specified
+            \item e.g. \mintinline{rust}|let x = 3 // x is u32|
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Syntax (Continued)}
+    \pause
+    \begin{itemize}[<+->]
+        \item Expression-based
+        \begin{itemize}[<+->]
+            \item Blocks are expressions and can be assigned to variables
+            \pause\inputrust{code/block-expr.rs}\pause
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Syntax (Continued)}
+    \pause
+    \begin{itemize}[<+->]
+        \item Implicit function returns
+            \begin{itemize}[<+->]
+                \item when semi-colon is \alert{omitted}, last expression is
+                      returned
+                \item Rust also allows explicit returns
+                \begin{itemize}[<+->]
+                    \item style is to only use explicit returns for early
+                          termination
+                \end{itemize}
+                \pause\inputrust{code/is-prime.rs}
+            \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Syntax (Continued)}
+    \pause
+    Rust supports \mintinline{rust}|struct|s
+    \pause
+    \begin{itemize}[<+->]
+        \item similar to classes
+        \item groups data
+        \item supports \alert{methods} unlike C
+        \begin{itemize}[<+->]
+            \item implicit functions
+            \item writting using \mintinline{rust}|impl| keyword
+        \end{itemize}
+        \item e.g. can create struct \mintinline{rust}|Rectangle| and call
+              \mintinline{rust}|rectangle.area()|
+    \end{itemize}
+\end{frame}

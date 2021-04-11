@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kd}{let}\PYG{+w}{ }\PYG{n}{y}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k+kd}{let}\PYG{+w}{ }\PYG{n}{x\PYGZus{}squared}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{x}\PYG{+w}{ }\PYG{o}{*}\PYG{+w}{ }\PYG{n}{x}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k+kd}{let}\PYG{+w}{ }\PYG{n}{x\PYGZus{}cube}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{x\PYGZus{}squared}\PYG{+w}{ }\PYG{o}{*}\PYG{+w}{ }\PYG{n}{x}\PYG{p}{;}
+
+\PYG{+w}{    }\PYG{c+c1}{// This expression will be assigned to `y`}
+\PYG{+w}{    }\PYG{n}{x\PYGZus{}cube}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{n}{x\PYGZus{}squared}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{n}{x}
+\PYG{p}{\PYGZcb{};}
+\end{Verbatim}

@@ -1,0 +1,39 @@
+\section{Networking}
+\begin{frame}{Networking in Rust}
+    \pause
+    Networking can be done using the \mintinline{rust}|std::net| standard
+    library
+    \pause
+    \begin{itemize}[<+->]
+        \item \mintinline{rust}|TcpListener| --- TCP Socket Server
+        \item \mintinline{rust}|TcpStream| --- Stream between local and remote socket
+        \item \mintinline{rust}|UdpSocket| --- Functionality for UDP communication
+        \item \mintinline{rust}|IpAddr| --- IPv4 and IPV6 addresses
+        \begin{itemize}[<+->]
+            \item \mintinline{rust}|Ipv4Addr|
+            \item \mintinline{rust}|Ipv6Addr|
+        \end{itemize}
+        \item \mintinline{rust}|SocketAddr| --- socket address of IPv4 and IPv6
+        \begin{itemize}[<+->]
+            \item \mintinline{rust}|SocketAddrV4|
+            \item \mintinline{rust}|SocketAddrV6|
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{\mintinline{rust}|TcpListener|}
+    \inputrust{code/tcplistener.rs}    
+\end{frame}
+
+\begin{frame}{\mintinline{rust}|TcpStream|}
+    \inputrust{code/tcpstream.rs}    
+\end{frame}
+
+\begin{frame}{\mintinline{rust}|UdpSocket|}
+    \inputrust{code/udpsocket.rs}
+\end{frame}
+
+\begin{frame}{Comparison with C}
+    \resizebox{0.49\textwidth}{!}{\inputrust{code/server.rs}}
+    \resizebox{0.49\textwidth}{!}{\inputc{code/server.c}}
+\end{frame}
