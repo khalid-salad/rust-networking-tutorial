@@ -1,5 +1,5 @@
 if (argc < 2) {
-  printf("Please pass port number to command line.\n");
+  perror("Please pass port number to command line.\n");
   exit(EXIT_FAILURE);
 }
 int port_number = atoi(argv[1]);

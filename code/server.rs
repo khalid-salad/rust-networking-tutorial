@@ -6,10 +6,10 @@ match args.len() {
 let port = &args[1];
 let address = format!("localhost:{}", port);
 let listener = TcpListener::bind(address)?;
-match listener {
-  Ok(v) => (),
-  Err(e) => panic!("Error connecting: {}", e)
-}
+
+
+
+
 
 
 
